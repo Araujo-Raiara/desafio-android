@@ -1,0 +1,63 @@
+package com.picpay.desafio.android.presenter.adapter
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.Recycler
+import com.picpay.desafio.android.data.entity.User
+import com.picpay.desafio.android.databinding.ListItemLoadingBinding
+import com.picpay.desafio.android.databinding.ListItemUserBinding
+
+private const val VIEW_TYPE_LOADING = 0
+private const val VIEW_TYPE_USER = 1
+private const val ONE_ITEM = 1
+
+class UserListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    var isLoading = false
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+    var users = emptyList<User>()
+        set(value) {
+            isLoading = false
+            val result = DiffUtil.calculateDiff(
+                UserListDiffCallback(
+                    field,
+                    value
+                )
+            )
+            result.dispatchUpdatesTo(this)
+            field = value
+        }
+
+    override fun getItemViewType(position: Int): Int {
+        return if (isLoading) {
+            VIEW_TYPE_LOADING
+        } else {
+            VIEW_TYPE_USER
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val viewHolder = when(viewType) {
+            VIEW_TYPE_LOADING -> LoadingListItemViewHolder(ListItemLoadingBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+            else -> UserListItemViewHolder(ListItemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        }
+        return viewHolder
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        (holder as? UserListItemViewHolder)?.bind(users[position])
+    }
+
+    override fun getItemCount() : Int {
+        return if(isLoading) {
+            ONE_ITEM
+        } else {
+            users.size
+        }
+    }
+}
