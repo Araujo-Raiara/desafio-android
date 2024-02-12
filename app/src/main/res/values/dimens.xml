@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="width_240dp">240dp</dimen>
     <dimen name="margin_8dp">8dp</dimen>
     <dimen name="width_52dp">52dp</dimen>
     <dimen name="margin_24dp">24dp</dimen>
@@ -10,5 +9,4 @@
     <dimen name="width_390dp">390dp</dimen>
     <dimen name="width_140dp">140dp</dimen>
     <dimen name="width_2dp">2dp</dimen>
-    <dimen name="width_3dp">3dp</dimen>
 </resources>

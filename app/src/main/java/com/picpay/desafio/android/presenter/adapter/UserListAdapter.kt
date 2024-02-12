@@ -14,7 +14,7 @@ private const val ONE_ITEM = 1
 
 class UserListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var isLoading = false
+    private var isLoading = false
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -32,6 +32,9 @@ class UserListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             field = value
         }
 
+    fun isLoading() {
+        isLoading = true
+    }
     override fun getItemViewType(position: Int): Int {
         return if (isLoading) {
             VIEW_TYPE_LOADING

@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder
 import com.picpay.desafio.android.data.network.PicPayService
 import com.picpay.desafio.android.data.repository.ContactsRepositoryImpl
 import com.picpay.desafio.android.domain.repository.ContactsRepository
+import com.picpay.desafio.android.domain.usecase.FilterListByInputUseCase
 import com.picpay.desafio.android.domain.usecase.GetContactsUseCase
 import com.picpay.desafio.android.presenter.viewmodel.ContactsViewModel
 import okhttp3.OkHttpClient
@@ -17,14 +18,15 @@ import retrofit2.converter.gson.GsonConverterFactory
 private const val BASE_URL = "https://609a908e0f5a13001721b74e.mockapi.io/picpay/api/"
 
 val picPayModule = module {
+    single { provideService(get()) }
+    single { provideRetrofit() }
     single<ContactsRepository> { ContactsRepositoryImpl(get()) }
-    viewModel { ContactsViewModel(get()) }
-    factory { GetContactsUseCase(get()) }
-    single { providesService() }
-
+    single { GetContactsUseCase(get()) }
+    single { FilterListByInputUseCase(get()) }
+    viewModel { ContactsViewModel(get(), get()) }
 }
 
-private fun providesService() {
+private fun provideRetrofit() : Retrofit {
     val gson: Gson = GsonBuilder().create()
     val loggingInterceptor = HttpLoggingInterceptor().also {
         it.level = HttpLoggingInterceptor.Level.BODY
@@ -34,11 +36,11 @@ private fun providesService() {
             .addInterceptor(loggingInterceptor)
             .build()
 
-    val retrofit: Retrofit =
-        Retrofit.Builder()
+    return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttp)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
-    retrofit.create(PicPayService::class.java)
 }
+
+fun provideService(retrofit: Retrofit) : PicPayService = retrofit.create(PicPayService::class.java)

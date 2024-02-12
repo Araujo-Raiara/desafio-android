@@ -11,11 +11,10 @@ class PicPayApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
-
         startKoin {
             androidLogger()
             androidContext(this@PicPayApplication)
-            module { picPayModule }
+            modules(picPayModule)
         }
     }
 }
