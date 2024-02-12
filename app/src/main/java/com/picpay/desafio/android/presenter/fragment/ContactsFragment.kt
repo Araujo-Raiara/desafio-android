@@ -36,22 +36,22 @@ class ContactsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentContactsBinding.inflate(inflater, container, false)
-        setupAdapter()
         setupObservers()
+        setupView()
+        setupMenu()
         contactsViewModel.getContacts()
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setupMenu()
-    }
-
-    private fun setupAdapter() {
+    private fun setupView() {
         binding.apply {
             adapter = UserListAdapter()
             recyclerView.adapter = adapter
-            recyclerView.layoutManager = LinearLayoutManager(context)
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            swipeRefresh.setOnRefreshListener {
+                contactsViewModel.refreshContacts()
+                swipeRefresh.isRefreshing = false
+            }
         }
     }
 
@@ -64,7 +64,6 @@ class ContactsFragment : Fragment() {
             }
         }
     }
-
 
     private fun setupSuccessState(contactsList: List<Contact>) {
         adapter.contacts = contactsList

@@ -23,7 +23,7 @@ val picPayModule = module {
     single<ContactsRepository> { ContactsRepositoryImpl(get()) }
     single { GetContactsUseCase(get()) }
     single { FilterListByInputUseCase(get()) }
-    viewModel { ContactsViewModel(get(), get()) }
+    viewModel { ContactsViewModel(get(), get(), get()) }
 }
 
 private fun provideRetrofit() : Retrofit {
