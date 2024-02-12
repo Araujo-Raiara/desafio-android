@@ -4,8 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
-import com.picpay.desafio.android.data.entity.User
+import com.picpay.desafio.android.data.entity.Contact
 import com.picpay.desafio.android.databinding.ListItemLoadingBinding
 import com.picpay.desafio.android.databinding.ListItemUserBinding
 
@@ -20,7 +19,7 @@ class UserListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             field = value
             notifyDataSetChanged()
         }
-    var users = emptyList<User>()
+    var contacts = emptyList<Contact>()
         set(value) {
             isLoading = false
             val result = DiffUtil.calculateDiff(
@@ -50,14 +49,14 @@ class UserListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as? UserListItemViewHolder)?.bind(users[position])
+        (holder as? UserListItemViewHolder)?.bind(contacts[position])
     }
 
     override fun getItemCount() : Int {
         return if(isLoading) {
             ONE_ITEM
         } else {
-            users.size
+            contacts.size
         }
     }
 }

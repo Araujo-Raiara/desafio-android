@@ -1,11 +1,11 @@
 package com.picpay.desafio.android.data.network
 
-import com.picpay.desafio.android.data.entity.User
+import com.picpay.desafio.android.data.entity.Contact
 import retrofit2.http.GET
 
 
 interface PicPayService {
 
     @GET("users")
-    suspend fun getUsers(): List<User>
+    suspend fun getContacts(): List<Contact>
 }

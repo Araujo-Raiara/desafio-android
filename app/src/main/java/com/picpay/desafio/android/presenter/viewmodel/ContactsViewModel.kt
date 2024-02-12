@@ -5,20 +5,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.picpay.desafio.android.data.network.ResponseState
-import com.picpay.desafio.android.domain.usecase.GetUsersUseCase
+import com.picpay.desafio.android.domain.usecase.GetContactsUseCase
 import kotlinx.coroutines.launch
 
-class UserViewModel(
-    private val getUsersUseCase: GetUsersUseCase
+class ContactsViewModel(
+    private val getContactsUseCase: GetContactsUseCase
 ): ViewModel() {
 
     private val _users : MutableLiveData<ResponseState> = MutableLiveData()
     val users: LiveData<ResponseState> get() = _users
 
-    fun getUsers() {
+    fun getContacts() {
         _users.value = ResponseState.Loading
         viewModelScope.launch {
-            val response = getUsersUseCase.getUsers()
+            val response = getContactsUseCase.getContacts()
             _users.value = response
         }
     }
