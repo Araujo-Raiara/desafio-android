@@ -5,31 +5,23 @@ import android.view.Menu
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.appbar.MaterialToolbar
 import com.picpay.desafio.android.R
 import com.picpay.desafio.android.data.entity.Contact
+import com.picpay.desafio.android.databinding.ActivityMainBinding
 import com.picpay.desafio.android.presenter.adapter.UserListAdapter
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity() {
 
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: UserListAdapter
     private lateinit var usersList: List<Contact>
-    private lateinit var topAppBar: MaterialToolbar
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        recyclerView = findViewById(R.id.recyclerView)
-        topAppBar = findViewById(R.id.topAppBar)
-        setSupportActionBar(topAppBar)
-        supportActionBar?.setDisplayShowTitleEnabled(true)
-        adapter = UserListAdapter()
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setupToolbar()
+        setupAdapter()
         adapter.isLoading = true
 //        service.getContacts()
 //            .enqueue(object : Callback<List<Contact>> {
@@ -46,6 +38,19 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 //                    usersList = adapter.contacts
 //                }
 //            })
+    }
+
+    private fun setupAdapter() {
+        binding.apply {
+            adapter = UserListAdapter()
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
+        }
+    }
+
+    private fun setupToolbar() {
+        setSupportActionBar(binding.topAppBar)
+        supportActionBar?.setDisplayShowTitleEnabled(true)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
