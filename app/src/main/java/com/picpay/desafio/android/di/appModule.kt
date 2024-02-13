@@ -21,8 +21,8 @@ val picPayModule = module {
     single { provideService(get()) }
     single { provideRetrofit() }
     single<ContactsRepository> { ContactsRepositoryImpl(get()) }
-    single { GetContactsUseCase(get()) }
-    single { FilterListByInputUseCase(get()) }
+    factory { GetContactsUseCase(get()) }
+    factory { FilterListByInputUseCase(get()) }
     viewModel { ContactsViewModel(get(), get(), get()) }
 }
 

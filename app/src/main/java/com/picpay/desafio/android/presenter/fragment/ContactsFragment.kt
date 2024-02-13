@@ -28,7 +28,6 @@ class ContactsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var adapter: UserListAdapter
-    private lateinit var contactsList: List<Contact>
 
     private val contactsViewModel: ContactsViewModel by viewModel()
 
@@ -89,7 +88,6 @@ class ContactsFragment : Fragment() {
 
     private fun setupSuccessState(contactsList: List<Contact>) {
         adapter.contacts = contactsList
-        this.contactsList = adapter.contacts
         binding.recyclerView.visible()
     }
 
