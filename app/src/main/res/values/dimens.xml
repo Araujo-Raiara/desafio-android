@@ -9,4 +9,7 @@
     <dimen name="width_390dp">390dp</dimen>
     <dimen name="width_140dp">140dp</dimen>
     <dimen name="width_2dp">2dp</dimen>
+    <dimen name="text_size_20sp">20sp</dimen>
+    <dimen name="width_240dp">240dp</dimen>
+    <dimen name="height_240dp">240dp</dimen>
 </resources>

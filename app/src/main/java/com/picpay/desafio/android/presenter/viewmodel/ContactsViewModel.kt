@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.picpay.desafio.android.data.network.ResponseState
 import com.picpay.desafio.android.domain.usecase.FilterListByInputUseCase
 import com.picpay.desafio.android.domain.usecase.GetContactsUseCase
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
 class ContactsViewModel(
@@ -22,7 +21,7 @@ class ContactsViewModel(
     val users: LiveData<ResponseState> get() = _users
 
     fun getContacts() {
-        if (_users.value == null) {
+        if (users.value == null) {
             refreshContacts()
         }
     }
