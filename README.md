@@ -2,7 +2,8 @@
 
 <img src="https://github.com/mobilepicpay/desafio-android/blob/master/desafio-picpay.gif" width="300"/>
 
-Um dos desafios de qualquer time de desenvolvimento é lidar com código legado e no PicPay isso não é diferente. Um dos objetivos de trazer os melhores desenvolvedores do Brasil é atacar o problema. Para isso, essa etapa do processo consiste numa proposta de solução para o desafio abaixo e você pode escolher a melhor forma de resolvê-lo, de acordo com sua comodidade e disponibilidade de tempo:
+Um dos desafios de qualquer time de desenvolvimento é lidar com código legado e no PicPay isso não é diferente. Um dos objetivos de trazer os melhores desenvolvedores do Brasil é atacar o problema.
+Para isso, essa etapa do processo consiste numa proposta de solução para o desafio abaixo e você pode escolher a melhor forma de resolvê-lo, de acordo com sua comodidade e disponibilidade de tempo:
 - Resolver o desafio previamente, e explicar sua abordagem no momento da entrevista.
 - Discutir as possibilidades de solução durante a entrevista, fazendo um pair programming (bate-papo) interativo com os nossos devs.
 
@@ -31,5 +32,15 @@ Separando a responsabilidade entre os componentes, promovendo uma arquitetura ma
      Esses testes cobrem a lógica de apresentação, negócios e dados.
     Utilizei o Espresso para testes instrumentados.
 
+## Outras implementações:
+- Adicionei o componente de navegação (Jetpack Components)
+- Injeção de dependencias utilizando o Koin
+- Melhorias no layout
+- Update das dependencias (Gradle)
+- Coroutines
+- LiveData
+- ViewBinding
+- okhttp3
+  
 Boa sorte! =)
 Ps.: Fique à vontade para editar o projeto inteiro, organização de pastas e módulos, bem como as dependências utilizadas
