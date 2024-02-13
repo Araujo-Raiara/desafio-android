@@ -72,15 +72,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/picture"
                 app:layout_constraintStart_toStartOf="@+id/picture"
                 app:layout_constraintTop_toTopOf="@+id/picture" />
-
-            <CheckBox
-                android:id="@+id/favorite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:button="@drawable/sl_favorite_24dp"
-                app:layout_constraintBottom_toBottomOf="@id/name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/username" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

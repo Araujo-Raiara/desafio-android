@@ -1,6 +1,5 @@
 package com.picpay.desafio.android.presenter.adapter
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.picpay.desafio.android.R
 import com.picpay.desafio.android.data.entity.Contact

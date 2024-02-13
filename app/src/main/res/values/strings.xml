@@ -4,4 +4,5 @@
     <string name="name_surname">Name Surname</string>
     <string name="username">\@username</string>
     <string name="search_hint">Procurar\n</string>
+    <string name="error">Ocorreu um erro, tente novamente</string>
 </resources>

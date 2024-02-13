@@ -35,6 +35,10 @@ class UserListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     fun isLoading() {
         isLoading = true
     }
+
+    fun hideLoading() {
+        isLoading = false
+    }
     override fun getItemViewType(position: Int): Int {
         return if (isLoading) {
             VIEW_TYPE_LOADING
