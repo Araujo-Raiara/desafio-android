@@ -43,7 +43,7 @@ Separando a responsabilidade entre os componentes, promovendo uma arquitetura ma
 - ViewBinding
 - okhttp3
   
-  ![Screen_recording_20240213_210526](https://github.com/Araujo-Raiara/desafio-android/assets/62944970/f84df387-61be-4b51-bc35-1500c3ee37d6)
+  ![Screen_recording_20240213_210526](https://github.com/Araujo-Raiara/desafio-android/assets/62944970/73348c2f-549a-433b-861b-1b7c8d055f3f)
 
 Boa sorte! =)
 Ps.: Fique à vontade para editar o projeto inteiro, organização de pastas e módulos, bem como as dependências utilizadas
