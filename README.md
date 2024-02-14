@@ -33,6 +33,7 @@ Separando a responsabilidade entre os componentes, promovendo uma arquitetura ma
     Utilizei o Espresso para testes instrumentados.
 
 ## Outras implementações:
+- Implementei o searchView para possibilitar a pesquisa de contatos
 - Adicionei o componente de navegação (Jetpack Components)
 - Injeção de dependencias utilizando o Koin
 - Melhorias no layout
@@ -42,5 +43,7 @@ Separando a responsabilidade entre os componentes, promovendo uma arquitetura ma
 - ViewBinding
 - okhttp3
   
+  ![Screen_recording_20240213_210138](https://github.com/Araujo-Raiara/desafio-android/assets/62944970/71024f29-52dc-4139-b4a0-cce0db65e7ba)
+
 Boa sorte! =)
 Ps.: Fique à vontade para editar o projeto inteiro, organização de pastas e módulos, bem como as dependências utilizadas
